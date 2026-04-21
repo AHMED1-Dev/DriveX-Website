@@ -6,6 +6,7 @@
   --extra-light: #f3f4f6;
   --white: #ffffff;
   --max-width: 1200px;
+  --accent: #c9a84c;
 }
 
 * {
@@ -59,7 +60,8 @@
 }
 
 .btn:hover {
-  background-color: var(--text-light);
+  background-color: var(--accent);
+  box-shadow: 0 20px 40px rgba(150, 150, 76, 0.3);
 }
 
 img {
@@ -83,6 +85,40 @@ body {
 
 body {
   font-family: "Poppins", sans-serif;
+}
+/* أضف في style.css نهاية الملف */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s;
+}
+.preloader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--extra-light);
+  border-top: 3px solid var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 nav {
@@ -136,19 +172,21 @@ nav {
   transition: transform 0.5s;
   z-index: -1;
 }
-
+#car_card {
+  background-color: #0077b5;
+}
 .nav__links.open {
   transform: translateY(100%);
 }
-
 .nav__links a {
   font-weight: 500;
   color: var(--white);
   white-space: nowrap;
 }
 
-.nav__links a:hover {
-  color: var(--text-light);
+.nav__links a:hover,
+.nav__links a.active {
+  color: var(--accent);
 }
 
 header {
@@ -245,14 +283,15 @@ header {
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-.fleet__wrapper-1 .fleet__images img {
-  max-width: 350px;
-  height: 250px;
-}
-
+.fleet__wrapper-1 .fleet__images img,
 .fleet__wrapper-2 .fleet__images img {
-  max-width: 350px;
-  height: 250px;
+  width: 350px; /*  عرض ثابت لكل صورة */
+  height: 250px; /* ارتفاع ثابت لكل صورة */
+  object-fit: cover;
+  background-color: #f8f8f8;
+  padding: 10px;
+  border-radius: 1rem;
+  flex-shrink: 0; /* مهم جداً - يمنع الصورة من الانكماش */
 }
 
 @keyframes scroll-left {
@@ -449,6 +488,252 @@ header {
   }
 }
 
+/* ============================
+   Filter Buttons
+   ============================ */
+
+.All_Brands {
+  position: relative;
+  max-width: var(--max-width);
+  width: fit-content;
+  margin-inline: auto;
+  background-color: var(--extra-light);
+  padding: 2rem;
+}
+.fillter_buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.All_Brands button {
+  background: transparent;
+  border: 2px solid var(--text-dark);
+  color: var(--text-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.All_Brands button:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+.All_Brands button.active {
+  background: var(--text-dark);
+  color: var(--white);
+  border-color: var(--accent);
+}
+
+/* Cars Grid */
+.cars_container {
+  padding: 2rem 1rem;
+}
+.cars_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+.car_card {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+.hide {
+  display: none;
+}
+.car_card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.car_card img {
+  height: 300px;
+  object-fit: cover;
+}
+.car_info {
+  padding: 1.5rem;
+}
+
+.car_info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.car_price {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.car_specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.car_specs li {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.car_specs i {
+  margin-right: 5px;
+}
+.modal {
+  display: none; /* مخفي افتراضياً */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* خلفية سوداء شفافة */
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+.modal-content {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease;
+}
+.modal p {
+  margin: 10px 0;
+}
+
+/* تأثير ظهور النافذة */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.car-btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+.btn-outline {
+  background: transparent;
+  border: 2px solid #333;
+  color: #333;
+}
+.btn-outline:hover {
+  background: #333;
+  color: #fff;
+}
+
+/* Start Book*/
+
+.booking_container {
+  padding: 4rem 1rem;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.booking_form {
+  background-color: var(--extra-light);
+  padding: 3rem;
+  border-radius: 1.5rem;
+  margin-top: 2rem;
+}
+
+.booking_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.booking_group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.booking_group h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.booking_group input,
+.booking_group select,
+.booking_group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  transition: 0.3s;
+  background-color: var(--white);
+}
+
+.booking_group input:focus,
+.booking_group select:focus,
+.booking_group textarea:focus {
+  border-color: var(--text-dark);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.booking_group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.booking_form .btn {
+  width: 100%;
+  justify-content: center;
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+}
+
+/* Media Queries */
+@media (width > 540px) {
+  .fillter_buttons {
+    font-size: 4rem;
+  }
+  .booking_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (width < 768px) {
+  .All_Brands {
+    top: 80px;
+  }
+  .cars_container {
+    padding: 6rem 1rem;
+  }
+}
 @media (width > 768px) {
   nav {
     position: static;
@@ -582,10 +867,25 @@ header {
   .footer__col .section__description {
     max-width: 400px;
   }
+  .booking_form {
+    padding: 4rem;
+  }
+  .booking_grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .booking_group:nth-child(3) {
+    grid-column: span 2;
+  }
 }
 
 @media (width > 1024px) {
   .feature__card {
     padding: 1.5rem;
+  }
+  .All_Brands {
+    font-size: 5rem;
+  }
+  .booking_form {
+    padding: 5rem;
   }
 }

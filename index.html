@@ -25,10 +25,14 @@
     <title>DriveX | Premium Car Rental</title>
   </head>
   <body>
+    <!-- Navbar -->
+    <div class="preloader" id="preloader">
+      <div class="spinner"></div>
+    </div>
     <nav>
       <div class="nav__header">
         <div class="nav__logo">
-          <a href="" class="nav__logo">
+          <a href="index.html" class="nav__logo">
             <img
               src="./image/logo.jpg"
               alt=" DriveX logo"
@@ -43,16 +47,19 @@
         </div>
       </div>
       <ul class="nav__links" id="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#car">Cars</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#help">Help</a></li>
-        <button class="btn">
-          <span><i class="ri-apple-fill"></i></span>
-          Download App
-        </button>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="car.html">Cars</a></li>
+        <li><a href="book.html">Book</a></li>
+        <li>
+          <button class="btn" onclick="sendToWhatsApp()">
+            <span><i class="ri-whatsapp-line"></i></span>
+            Get App
+          </button>
+        </li>
       </ul>
     </nav>
+    <!-- Navbar -->
 
     <header>
       <div class="header__image">
@@ -91,9 +98,9 @@
           support, we strive to make every journey effortless and enjoyable
         </p>
         <div class="about__btn">
-          <button class="btn">
-            <span><i class="ri-apple-fill"></i></span>
-            Download App
+          <button class="btn" onclick="sendToWhatsApp()">
+            <span><i class="ri-whatsapp-line"></i></span>
+            Get App
           </button>
         </div>
       </div>
@@ -110,22 +117,46 @@
       </p>
       <div class="fleet__wrapper-1">
         <div class="fleet__images">
-          <img src="./image/car 1.jpg" alt="Luxury Car 1" loading="lazy" />
-          <img src="./image/car 2.jpg" alt="Luxury Car 2" loading="lazy" />
-          <img src="./image/car 3.jpg" alt="Luxury Car 3" loading="lazy" />
-          <img src="./image/car 4.jpg" alt="Luxury Car 4" loading="lazy" />
-          <img src="./image/car 5.jpg" alt="Luxury Car 5" loading="lazy" />
-          <img src="./image/car 6.jpg" alt="Luxury Car 6" loading="lazy" />
+          <img
+            src="./image/Mercedes S-Class.webp"
+            alt="Mercedes S-Class"
+            loading="lazy"
+          />
+          <img
+            src="./image/Mercedes E-Class.webp"
+            alt="Mercedes E-Class"
+            loading="lazy"
+          />
+          <img
+            src="./image/Mercedes C-Class.webp"
+            alt="Mercedes C-Class"
+            loading="lazy"
+          />
+          <img
+            src="./image/BMW 3 Series.webp"
+            alt="BMW 3 Series"
+            loading="lazy"
+          />
+          <img
+            src="./image/BMW 5 Series.webp"
+            alt="BMW 5 Series"
+            loading="lazy"
+          />
+          <img src="./image/BMW X5.webp" alt="BMW X5" loading="lazy" />
         </div>
       </div>
       <div class="fleet__wrapper-2">
         <div class="fleet__images">
-          <img src="./image/car 7.png" alt="Luxury Car 7" loading="lazy" />
-          <img src="./image/car 8.jpg" alt="Luxury Car 8" loading="lazy" />
-          <img src="./image/car 9.jpg" alt="Luxury Car 9" loading="lazy" />
-          <img src="./image/car 10.png" alt="Luxury Car 10" loading="lazy" />
-          <img src="./image/car 11.jpg" alt="Luxury Car 11" loading="lazy" />
-          <img src="./image/car 12.jpg" alt="Luxury Car 12" loading="lazy" />
+          <img src="./image/MG 5.webp" alt="MG 5" loading="lazy" />
+          <img src="./image/MG 6.webp" alt="MG 6" loading="lazy" />
+          <img
+            src="./image/MG Cyberster.webp"
+            alt="MG Cyberster"
+            loading="lazy"
+          />
+          <img src="./image/Audi A4.webp" alt="Audi A4" loading="lazy" />
+          <img src="./image/Audi A6.webp" alt="Audi A6" loading="lazy" />
+          <img src="./image/Audi Q5.webp" alt="Audi Q5" loading="lazy" />
         </div>
       </div>
     </section>
@@ -166,9 +197,9 @@
         premium Car Rental, where every journey becomes extraordinary.
       </p>
       <div class="banner__btn">
-        <button class="btn">
-          <span><i class="ri-apple-fill"></i></span>
-          Download App
+        <button class="btn" onclick="sendToWhatsApp()">
+          <span><i class="ri-whatsapp-line"></i></span>
+          Get App
         </button>
       </div>
     </section>
@@ -187,15 +218,15 @@
         </div>
         <div class="footer__col">
           <ul class="footer__links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#car">Cars</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#help">Help</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="car.html">Cars</a></li>
+            <li><a href="book.html">Book</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h4>Subscribe To News</h4>
-          <form action="https://formspree.io/f/your-form-id" method="POST">
+          <form action="https://formspree.io/f/maqadobo" method="POST">
             <input
               type="email"
               name="email"
@@ -228,6 +259,6 @@
     </footer>
 
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
   </body>
 </html>

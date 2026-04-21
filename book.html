@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="DriveX - Premium Car Rental in Egypt. Rent luxury cars with easy booking, 24/7 support, and flexible Payment Plans."
+    />
+    <meta name="keywords" content="car rental, luxury cars, Egypt, DriveX" />
+    <meta property="og:title" content="DriveX - Premium Car Rental" />
+    <meta property="og:image" content="./image/logo.jpg" />
+    <meta
+      property="og:url"
+      content="https://ahmed1-dev.github.io/DriveX-Website/"
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="./image/logo.jpg" />
+    <title>DriveX | Premium Car Rental</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <!-- أضف قبل </body> في index.html, car.html, book.html -->
+    <div class="preloader" id="preloader">
+      <div class="spinner"></div>
+    </div>
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="" class="nav__logo">
+            <img
+              src="./image/logo.jpg"
+              alt=" DriveX logo"
+              class="logo-light"
+              loading="lazy"
+            />
+            DriveX
+          </a>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-3-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html">About</a></li>
+        <li><a href="index.html">Features</a></li>
+        <li><a href="car.html">Cars</a></li>
+        <li><a href="book.html">Book</a></li>
+        <button class="btn" onclick="sendToWhatsApp()">
+          <span><i class="ri-whatsapp-line"></i></span>
+          Get App
+        </button>
+      </ul>
+    </nav>
+    <!-- Navbar -->
+
+    <!-- Booking Section -->
+    <section class="section_container booking_container">
+      <h2 class="section_header">Book Your Premium Car</h2>
+      <p class="section_desciption">
+        Fill out the form below to reserve your Luxury vehicle
+      </p>
+      <form
+        class="booking_form"
+        action="https://formspree.io/f/maqadobo"
+        method="POST"
+      >
+        <div class="booking_grid">
+          <!-- Personal Info -->
+          <div class="booking_group">
+            <h3>Personal Information</h3>
+            <input type="text" name="name" placeholder="Full Name" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              required
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              required
+            />
+          </div>
+          <!-- Car Selection -->
+          <div class="booking_group">
+            <h3>Car Selection</h3>
+            <select name="car" required>
+              <option value="">Select a Car</option>
+              <!-- Mercedes -->
+              <option value="mercedes-s-class">Mercedes S-Class</option>
+              <option value="mercedes-e-class">Mercedes E-Class</option>
+              <option value="mercedes-c-class">Mercedes C-Class</option>
+              <option value="mercedes-g-class-(g-wagon)">
+                Mercedes G-Class (G-Wagon)
+              </option>
+              <option value="mercedes-gls">Mercedes GLS</option>
+              <option value="mercedes-glc">Mercedes GLC</option>
+              <option value="mercedes-a-class">Mercedes A-Class</option>
+              <option value="mercedes-cla">Mercedes CLA</option>
+              <option value="mercedes-eqs-(electric)">
+                Mercedes EQS (Electric)
+              </option>
+              <option value="mercedes-amg-gt">Mercedes AMG GT</option>
+              <!-- BMW -->
+              <option value="bmw-3-series">BMW 3 Series</option>
+              <option value="bmw-5-series">BMW 5 Series</option>
+              <option value="bmw-x5">BMW X5</option>
+              <option value="bmw-x7">BMW X7</option>
+              <option value="bmw-m3">BMW M3</option>
+              <option value="bmw-m5">BMW M5</option>
+              <option value="bmw-i4-(electric)">BMW i4 (Electric)</option>
+              <option value="bmw-ix-(electric)">BMW iX (Electric)</option>
+              <option value="bmw-x3">BMW X3</option>
+              <option value="bmw-8-series">BMW 8 Series</option>
+
+              <!-- Audi -->
+              <option value="audi-a4">Audi A4</option>
+              <option value="audi-a6">Audi A6</option>
+              <option value="audi-q5">Audi Q5</option>
+              <option value="audi-q7">Audi Q7</option>
+              <option value="audi-q8">Audi Q8</option>
+              <option value="audi-r8">Audi R8</option>
+              <option value="audi-e-tron-(electric)">
+                Audi e-tron (Electric)
+              </option>
+              <option value="audi-rs6">Audi RS6</option>
+              <option value="audi-tt">Audi TT</option>
+              <option value="audi-s5">Audi S5</option>
+              <!-- MG -->
+              <option value="mg-5">MG 5</option>
+              <option value="mg-6">MG 6</option>
+              <option value="mg-zs">MG ZS</option>
+              <option value="mg-zs-ev-(electric)">MG ZS EV (Electric)</option>
+              <option value="mg-hs">MG HS</option>
+              <option value="mg-rx5">MG RX5</option>
+              <option value="mg-gt">MG GT</option>
+              <option value="mg-cyberster">MG Cyberster</option>
+              <!-- Chery -->
+              <option value="chery-tiggo-4">Chery Tiggo 4</option>
+              <option value="chery-tiggo-7-pro">Chery Tiggo 7 Pro</option>
+              <option value="chery-tiggo-8-pro">Chery Tiggo 8 Pro</option>
+              <option value="chery-arrizo-5">Chery Arrizo 5</option>
+              <option value="chery-arrizo-6-pro">Chery Arrizo 6 Pro</option>
+              <option value="chery-tiggo-2">Chery Tiggo 2</option>
+              <option value="chery-omoda-5">Chery Omoda 5</option>
+              <option value="chery-tiggo-9">Chery Tiggo 9</option>
+              <option value="chery-exeed-txl">Chery Exeed TXL</option>
+              <!-- Kia -->
+            </select>
+            <input type="date" name="pickup-date" required />
+            <input type="date" name="return-date" required />
+          </div>
+          <!-- Additional Info -->
+          <div class="booking_group">
+            <h3>Additional Details</h3>
+            <textarea
+              name="message"
+              rows="4"
+              placeholder="Any special requests?"
+            ></textarea>
+            <select name="insurance">
+              <option value="basic">Basic Insurance</option>
+              <option value="premium">Premium Insurance</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn">
+          <span><i class="ri-check-line"></i></span>
+          Confirm Booking
+        </button>
+      </form>
+    </section>
+
+    <footer>
+      <div class="section__container footer__container" id="help">
+        <div class="footer__col">
+          <a href="#" class="footer__logo">
+            <img src="./image/logo.jpg" alt="DriveX Logo" loading="lazy" />
+            DriveX
+          </a>
+          <p class="section__description">
+            Experience the elegance and reliability of premium car rental
+            services. Drive in style with our luxury fleet.
+          </p>
+        </div>
+        <div class="footer__col">
+          <ul class="footer__links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="car.html">Cars</a></li>
+            <li><a href="book.html">Book</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Subscribe To News</h4>
+          <form action="https://formspree.io/f/maqadobo" method="POST">
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
+            <button class="btn">
+              <i class="ri-arrow-right-line"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="footer__bar">
+        &copy; 2025 DriveX. Built by Ahmed (Frontend Developer). All rights
+        reserved.
+        <div class="link">
+          <a
+            href="mailto:abdelwareth369@gmail.com?subject=contact"
+            class="gmail"
+            >abdelwareth369@gmail.com</a
+          >
+          <a href="https://www.linkedin.com/in/ahmed-mohamed-88a336368"
+            ><i class="ri-linkedin-box-line"></i
+          ></a>
+          <a href="https://wa.me/01113650935"
+            ><i class="ri-whatsapp-line"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="main.js" defer></script>
+  </body>
+</html>
