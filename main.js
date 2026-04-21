@@ -149,7 +149,6 @@ if (document.querySelector(".booking_form")) {
 
   if (bookingForm) {
     bookingForm.addEventListener("submit", (e) => {
-      e.preventDefault();
       const formData = new FormData(bookingForm);
       // تحويل FormData إلى كائن عادي لسهولة العرض أو الإرسال
       const data = Object.fromEntries(formData.entries());
@@ -158,10 +157,7 @@ if (document.querySelector(".booking_form")) {
       alert(
         "✅ Thank you! Your booking request has been submitted successfully.",
       );
-
-      bookingForm.reset();
-      // هنا ممكن تضيف كود لإرسال البيانات إلى السيرفر أو تخزينها في localStorage
-
+      
       console.log("Booking Data:", data);
     });
   }
@@ -411,7 +407,7 @@ ${carName ? `🚘 السيارة: ${carName}` : ""}
 ---
 *أريد الحجز الآن* 🙌`;
   window.open(
-    `https://wa.me/01113650935?text=${encodeURIComponent(msg)}`,
+    `https://wa.me/201113650935?text=${encodeURIComponent(msg)}`,
     "_blank",
   );
 }
