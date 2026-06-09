@@ -718,7 +718,7 @@ header {
 }
 
 /* Media Queries */
-@media (width > 540px) {
+@media (width >= 540px) {
   .fillter_buttons {
     font-size: 4rem;
   }
@@ -726,10 +726,16 @@ header {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (width < 768px) {
+@media (width <= 768px) {
   .All_Brands {
-    top: 80px;
+    position: sticky;
+    top: 70px;
+    width: 100%;
+    z-index: 8;
   }
+  .cars_grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
   .cars_container {
     padding: 6rem 1rem;
   }
